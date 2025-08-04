@@ -37,6 +37,10 @@ const agentSchema = new mongoose.Schema({
 
     },
 
+    emailVerificationToken:{
+        type: String
+    },
+
     isVerifiedAgent:{
         type: Boolean,
         default: false
