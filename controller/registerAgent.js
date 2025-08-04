@@ -16,7 +16,7 @@ export const registerAgent = async (req, res) => {
         return res.status(409).json({message: 'Agent with this email already exists'});
     }
 
-    const tokken = crypto.randomBytes(32).toString('hex');
+    const token = crypto.randomBytes(32).toString('hex');
     const verificationUrl = `${process.env.BASE_URL}/api/agents/verify-email/${token}`;
     
 
@@ -43,10 +43,33 @@ export const registerAgent = async (req, res) => {
     })
 
     await agent.save();
-    return res.status(201).json({message: 'Agent registered Succesfully'});
+    return res.status(201).json({message: 'Agent registered Succesfully. pls check your email to verify your account.'});
 
 }catch(error){
     console.log(error);
     return res.status(500).json({message: 'Internal server error'});
 }
 }
+
+
+export const verifyEmail = async (req, res) =>{
+    const{token} = req.params;
+
+    try{
+        const agent = await Agent.findOne({emailVerificationToken: token})
+
+        if(!agent){
+            return res.status(404).json({message: 'Invalid or expired token.'});
+        }
+    
+
+    agent.isVerifiedAgent = true;
+    agent.emailVerificationToken = undefined;
+    await agent.save()
+
+    return res.status(200).json({message: 'Email verified Successfully.'})
+}catch(error){
+    console.log(error)
+    return res.status(500).json({message: 'Something went wrong while verifying email'})
+};
+};
