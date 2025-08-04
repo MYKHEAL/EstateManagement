@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import emailRoute from './routes/emailRoute.js';
 import agentRoutes from './routes/agentRoutes.js';
 
 dotenv.config();
@@ -10,6 +11,7 @@ app.use(express.json());
 
 // Route
 app.use('/api/agents', agentRoutes);
+app.use('/api', emailRoute);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
