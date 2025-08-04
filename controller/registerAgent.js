@@ -1,6 +1,6 @@
-import Agent from '../models/agent.js';
+import Agent from '../model/agent.js';
 import bcrypt from 'bcryptjs';
-import cloudinary from '../utils/cloudinary.js';
+import cloudinary from '../middleware/cloudinary.js';
 import crypto from 'crypto'
 import sendEmail from '../utils/sendEmail.js'
 

@@ -1,6 +1,6 @@
 import express from 'express';
-import upload from '../middlewear/multer.js'; // keep your custom upload middleware
-import { registerAgent, verifyEmail } from '../controllers/agentController.js';
+import upload from '../middleware/multer.js'; // keep your custom upload middleware
+import { registerAgent, verifyEmail } from '../controller/registerAgent.js';
 
 const router = express.Router();
 
