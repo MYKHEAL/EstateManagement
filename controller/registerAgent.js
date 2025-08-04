@@ -28,7 +28,7 @@ export const registerAgent = async (req, res) => {
 
 
 
-    const result = await cloudinary.uploader(req.file.path,{
+    const result = await cloudinary.uploader.upload(req.file.path,{
         folder: 'nin_docs'
     });
 
