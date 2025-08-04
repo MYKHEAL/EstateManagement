@@ -2,7 +2,7 @@ import Agent from '../models/agent.js';
 import bcrypt from 'bcryptjs';
 import cloudinary from '../utils/cloudinary.js';
 
-export const registerAgent = assync (req, res) =>{
+export const registerAgent = assync (req, res) => {
     try{
         const{fullName, email, phone, password} = req.body;
         if(!fullName || !email || !phone || !password || !req.file){
@@ -32,6 +32,6 @@ export const registerAgent = assync (req, res) =>{
 
 }catch(error){
     console.log(error);
-    return res.status(500).json({message: 'Internal server error'};)
+    return res.status(500).json({message: 'Internal server error'});
 }
-};
+}
