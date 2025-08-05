@@ -3,16 +3,24 @@ import bcrypt from 'bcryptjs';
 import cloudinary from '../middleware/cloudinary.js';
 import crypto from 'crypto';
 import sendEmail from '../utils/sendEmail.js';
+import validateAgent from '../validators/validateAgent.js';
 
 export const registerAgent = async (req, res) => {
   try {
     const { fullName, email, phone, password } = req.body;
+        const { isValid, errors } = validateAgent({ fullName, email, phone, password });
+       if (!isValid) {
+  return res.status(400).json({
+    message: 'Validation failed',
+    errors,
+  });
+}
 
-    if (!fullName || !email || !phone || !password || !req.file) {
-      return res.status(400).json({
-        message: 'All fields are required including NIN Document',
-      });
-    }
+if (!req.file) {
+  return res.status(400).json({
+    message: 'NIN Document is required',
+  });
+}
 
     const existingAgent = await Agent.findOne({ email });
     if (existingAgent) {
