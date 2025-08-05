@@ -1,4 +1,4 @@
-const validateAgennt = ({fullName, email, phoneNumer, password})=>{
+const validateAgent = ({fullName, email, phoneNumer, password})=>{
     const errors = {};
 
     if(!fullName|| fullName.trim() === ''){
