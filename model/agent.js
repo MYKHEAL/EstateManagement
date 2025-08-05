@@ -22,7 +22,7 @@ const agentSchema = new mongoose.Schema({
         type: String,
         required: [true,'Phone number is required'],
         trim: true,
-        match: [/^\d{10}$/, 'Please enter a valid phone number']
+        match: [/^\d{11}$/, 'Please enter a valid phone number']
     },
 
 

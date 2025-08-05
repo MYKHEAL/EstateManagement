@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Route
 app.use('/api/agents', agentRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
