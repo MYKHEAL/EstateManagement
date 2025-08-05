@@ -18,7 +18,7 @@ const agentSchema = new mongoose.Schema({
         match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email address']
     },
 
-    phone:{
+    phoneNumber:{
         type: String,
         required: [true,'Phone number is required'],
         trim: true,

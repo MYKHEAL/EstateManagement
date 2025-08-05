@@ -1,4 +1,4 @@
-const validateAgent = ({fullName, email, phoneNumer, password})=>{
+const validateAgent = ({fullName, email, phoneNumber, password})=>{
     const errors = {};
 
     if(!fullName|| fullName.trim() === ''){
@@ -11,8 +11,8 @@ const validateAgent = ({fullName, email, phoneNumer, password})=>{
     errors.email = 'Invalid email format';
   }
 
-  const phoneRegex = /^\d{11}$/; // Nigerian phone format
-  if (!phone) {
+  const phoneRegex = /^\d{11}$/; 
+  if (!phoneNumber) {
     errors.phone = 'Phone number is required';
   } else if (!phoneRegex.test(phone)) {
     errors.phone = 'Phone number must be 11 digits';

@@ -7,8 +7,8 @@ import validateAgent from '../validators/validateAgent.js';
 
 export const registerAgent = async (req, res) => {
   try {
-    const { fullName, email, phone, password } = req.body;
-        const { isValid, errors } = validateAgent({ fullName, email, phone, password });
+    const { fullName, email, phoneNumber, password } = req.body;
+        const { isValid, errors } = validateAgent({ fullName, email, phoneNumber, password });
        if (!isValid) {
   return res.status(400).json({
     message: 'Validation failed',
@@ -52,7 +52,7 @@ if (!req.file) {
     const newAgent = new Agent({
       fullName,
       email,
-      phone,
+      phoneNumber,
       password: hashedPassword,
       ninDocumentUrl: result.secure_url,
       emailVerificationToken: token,
