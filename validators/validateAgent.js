@@ -13,9 +13,9 @@ const validateAgent = ({fullName, email, phoneNumber, password})=>{
 
   const phoneRegex = /^\d{11}$/; 
   if (!phoneNumber) {
-    errors.phone = 'Phone number is required';
-  } else if (!phoneRegex.test(phone)) {
-    errors.phone = 'Phone number must be 11 digits';
+    errors.phoneNumber = 'Phone number is required';
+  } else if (!phoneRegex.test(phoneNumber)) {
+    errors.phoneNumber = 'Phone number must be 11 digits';
   }
 
    if (!password) {
