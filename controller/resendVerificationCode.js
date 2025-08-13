@@ -1,4 +1,4 @@
-import Agent from "../model/agent";
+import Agent from "../model/agent.js";
 import sendEmail from "../utils/sendEmail.js";
 
 const generateVerificationCode = () => {

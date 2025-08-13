@@ -4,7 +4,6 @@ export const verifyEmailCode = async (req, res) => {
   const { email, code } = req.body;
 
   try {
-    // Find the agent by email
     const agent = await Agent.findOne({ email });
     if (!agent) {
       return res.status(404).json({ message: 'Agent not found' });
