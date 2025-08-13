@@ -42,6 +42,10 @@ const agentSchema = new mongoose.Schema({
         type: String
     },
 
+    emailVerificationCodeExpiry: {
+        type: Date,
+    },
+
     isVerifiedAgent:{
         type: Boolean,
         default: false
