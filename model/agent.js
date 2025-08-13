@@ -38,7 +38,7 @@ const agentSchema = new mongoose.Schema({
 
     },
 
-    emailVerificationToken:{
+    emailVerificationCode:{
         type: String
     },
 
